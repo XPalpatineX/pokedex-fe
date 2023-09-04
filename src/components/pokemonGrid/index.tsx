@@ -1,3 +1,5 @@
+import { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 
@@ -6,9 +8,15 @@ import { allPokemonSelector } from 'data/selectors/pokemon';
 import DynamicImage from 'components/dynamicImage';
 
 import { PokemonCard, PokemonName } from './styles';
+import { PokemonShort } from 'data/types/pokemon';
 
 const PokemonGrid = () => {
-  const pokemonItems = useAppSelector(allPokemonSelector);
+  const navigate = useNavigate();
+  const pokemonItems: PokemonShort[] = useAppSelector(allPokemonSelector);
+
+  const cardClickHandler = useCallback((pokemonIndex: number) => {
+    navigate(`/pokemon/${pokemonIndex}`);
+  }, [navigate]);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -18,9 +26,9 @@ const PokemonGrid = () => {
           const pokemonIndex = Number(pokemon.url.split('/').filter(Boolean).pop());
           return (
             <Grid xs={12} sm={'auto'} md={'auto'} key={index}>
-              <PokemonCard elevation={6}>
+              <PokemonCard elevation={6} onClick={() => cardClickHandler(pokemonIndex)}>
                 <>
-                  <DynamicImage imageIndex={pokemonIndex}  />
+                  <DynamicImage imageIndex={pokemonIndex}/>
                   <PokemonName>{pokemonName}</PokemonName>
                 </>
               </PokemonCard>

@@ -1,12 +1,13 @@
-import React, { useState, useEffect, ComponentProps } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { ImageWrapper } from './styles';
 
 interface IDynamicImage {
   imageIndex: number,
+  imageSize?: number,
 }
 
-const DynamicImage: React.FC<IDynamicImage> = ({ imageIndex }) => {
+const DynamicImage: React.FC<IDynamicImage> = ({ imageIndex, imageSize = 100 }) => {
   const [imageSrc, setImageSrc] = useState(null);
 
   useEffect(() => {
@@ -25,7 +26,7 @@ const DynamicImage: React.FC<IDynamicImage> = ({ imageIndex }) => {
 
   return (
     <ImageWrapper>
-      <img src={imageSrc} alt={`Image ${imageIndex}`} width={100} height={100} />
+      <img src={imageSrc} alt={`Image ${imageIndex}`} width={imageSize} height={imageSize} />
     </ImageWrapper>
   );
 }
