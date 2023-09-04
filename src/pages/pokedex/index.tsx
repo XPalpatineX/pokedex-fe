@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import queryString from 'query-string';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from 'data/store';
+import { useAppDispatch } from 'data/store';
 
 import Header from 'components/header';
 import PokemonGrid from 'components/pokemonGrid';
