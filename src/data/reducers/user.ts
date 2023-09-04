@@ -36,7 +36,11 @@ export const userReducer: Reducer<UserState, AnyAction> = (state = initialState,
     case EUserAction.LOGOUT: {
       localStorage.removeItem('accessToken');
       localStorage.removeItem('refreshToken');
-      return initialState;
+      return {
+        ...initialState,
+        accessToken: '',
+        refreshToken: '',
+      };
     }
     default:
       return state
