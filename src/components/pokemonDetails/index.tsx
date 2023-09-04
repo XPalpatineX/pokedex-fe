@@ -1,4 +1,4 @@
-import { useAppSelector } from "../../data/store";
+import { useAppSelector } from "data/store";
 import { pokemonStatsSelector } from 'data/selectors/pokemon';
 
 import { PokemonTitle, DescriptionContainer, Row, RowItem, DescriptionWrapper } from './styles';
@@ -8,7 +8,7 @@ type StatTypes = 'name' | 'types' | 'height' | 'weight' | 'hp' | 'attack' | 'def
 
 const PokemonDetails = () => {
   const pokemonStats = useAppSelector(pokemonStatsSelector);
-  console.log(pokemonStats)
+
   return (
     <DescriptionWrapper>
       <PokemonTitle>{pokemonStats.name}</PokemonTitle>

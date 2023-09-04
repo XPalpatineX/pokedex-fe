@@ -2,7 +2,7 @@ import { EPokemonAction } from 'data/types/action.types';
 import { Reducer, AnyAction } from 'redux';
 import { PokemonShort, PokemonListData, Pokemon } from 'data/types/pokemon';
 
-export interface PokemonState {
+interface PokemonState {
   data: PokemonShort[],
   pokemon: Pokemon | null,
 }

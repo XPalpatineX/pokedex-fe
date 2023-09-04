@@ -3,11 +3,16 @@ import { Route, Routes, Navigate } from "react-router-dom";
 
 import Pokedex from 'pages/pokedex';
 import Pokemon from 'pages/pokemon';
+import SignUp from 'pages/signUp';
+import SignIn from 'pages/signIn';
+
+import { isAuthSelector } from 'data/selectors/user';
 
 import { AppWrapper } from './styles';
+import { useAppSelector } from 'data/store';
 
 export const App = () => {
-  const [isAuth] = useState(true);
+  const isAuth = useAppSelector(isAuthSelector);
   
   return (
     <AppWrapper className="app">
@@ -20,8 +25,8 @@ export const App = () => {
           </>
         ) : (
           <>
-            <Route path="sign-in" element={<>sign-in</>} />
-            <Route path="sign-up" element={<>sign-up</>} />
+            <Route path="sign-in" element={<SignIn />} />
+            <Route path="sign-up" element={<SignUp />} />
             <Route path="*" element={<Navigate to="sign-in" />} />
           </>
         )}
