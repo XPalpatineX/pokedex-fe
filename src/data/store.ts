@@ -1,21 +1,23 @@
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-import { combineReducers, createStore, applyMiddleware } from 'redux'
-import thunkMiddleware from 'redux-thunk'
+import { combineReducers, createStore, applyMiddleware, Dispatch } from 'redux'
+import thunk from 'redux-thunk'
 import { composeWithDevTools } from '@redux-devtools/extension';
 
-import { userReducer } from "./reducers/user.reducer";
-import { pokemonReducer } from "./reducers/pokemon.reducer";
-import { loadingReducer } from "./reducers/loading.reducer";
+import { userReducer } from "data/reducers/user";
+import { pokemonReducer } from "./reducers/pokemon";
+import { loadingReducer } from "./reducers/loading";
+const initialState = {};
 
 const rootReducer = combineReducers({
-  user: userReducer,
+  // user: userReducer,
   pokemon: pokemonReducer,
-  loading: loadingReducer,
+  // loading: loadingReducer,
 });
 
 export const store = createStore(
-  rootReducer, 
-  composeWithDevTools(applyMiddleware(thunkMiddleware)),
+  rootReducer,
+  initialState,
+  composeWithDevTools(applyMiddleware(thunk)),
 );
 type AppDispatch = typeof store.dispatch;
 export const useAppDispatch = () => useDispatch<AppDispatch>();

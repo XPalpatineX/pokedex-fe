@@ -7,7 +7,7 @@ import { AppWrapper } from './styles';
 
 export const App = () => {
   const [isAuth] = useState(true);
-
+  
   return (
     <AppWrapper className="app">
       <Routes>
