@@ -1,6 +1,5 @@
 import { useCallback } from 'react';
 import TextField from '@mui/material/TextField';
-import { Dispatch, SetStateAction } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { Description } from 'components/common/styles';

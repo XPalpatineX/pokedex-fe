@@ -1,6 +1,4 @@
-import { Dispatch, AnyAction } from 'redux';
-import { ThunkAction } from 'redux-thunk';
-import { AppState } from 'data/store';
+import { Dispatch } from 'redux';
 
 import { EPokemonAction } from 'data/types/action.types';
 import { EDefaultPagination, IPagination } from '../types/pokemon';
