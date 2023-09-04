@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Route, Routes, Navigate } from "react-router-dom";
 
 import Pokedex from 'pages/pokedex';
+import Pokemon from 'pages/pokemon';
 
 import { AppWrapper } from './styles';
 
@@ -14,7 +15,7 @@ export const App = () => {
         {isAuth ? (
           <>
             <Route path="/pokemon" element={<Pokedex />} />
-            <Route path="/pokemon/:id" element={<>Pokemon id</>} />
+            <Route path="/pokemon/:id" element={<Pokemon />} />
             <Route path="*" element={<Navigate to="/pokemon" />} />
           </>
         ) : (

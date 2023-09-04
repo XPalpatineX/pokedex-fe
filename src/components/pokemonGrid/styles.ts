@@ -13,6 +13,7 @@ export const PokemonCard = styled(Paper)`
   flex-direction: column;
   width: 300px;
   height: 200px;
+  cursor: pointer;
 `;
 
 export const PokemonName = styled.h3`

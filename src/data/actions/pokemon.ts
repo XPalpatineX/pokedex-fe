@@ -26,3 +26,19 @@ export const getAllPokemon = (pagination: IPagination, error: IErrorCallback = (
     error(e.message);
   }
 }
+
+export const getPokemon = (pokemonId: string | number, error: IErrorCallback = () => {}) => async (dispatch: Dispatch): Promise<void> => {
+  try {
+    const urlWithQueryParams = `${API_URL}/pokemon/${pokemonId}`;
+    const pokemonData = await fetch(urlWithQueryParams).then((data) => data.json());
+
+    dispatch({
+      type: EPokemonAction.GET_POKEMON,
+      payload: {
+        pokemonData
+      }
+    })
+  } catch (e: any) {
+    error(e.message);
+  } 
+}
